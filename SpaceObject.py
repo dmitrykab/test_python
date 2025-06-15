@@ -1,13 +1,19 @@
 class SpaceObject:
     def __init__(self, weight, absorbed = False):
-        self.weight = weight
-        self.absorbed = absorbed
-
-
+        self.__weight = weight
+        self.__absorbed = absorbed
 
     def mark_absorbed(self):
-        self.absorbed  = True
+        self.__absorbed  = True
+        self.__weight = 0
 
+    @property 
+    def absorbed(self):
+        return self.__absorbed
+
+    @property    
+    def weight(self):
+        return self.__weight
 
 class Planet(SpaceObject):
     def __init__(self, weight):
